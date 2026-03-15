@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>會員註冊</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script
+      charset="utf-8"
+      src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"
+    ></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <!-- Loading Screen -->
+      <div id="loading" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 text-muted">載入中，請稍候...</p>
+      </div>
+
+      <!-- Registration Form -->
+      <div id="register-form-container" class="hidden">
+        <h2 class="mb-4 text-center">會員註冊</h2>
+        <form id="registerForm">
+          <div class="mb-3">
+            <label for="nickname" class="form-label"
+              >暱稱 <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nickname"
+              placeholder="請輸入您的暱稱"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">電子郵件</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">電話號碼</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              placeholder="0912345678"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100 btn-lg mt-3">
+            註冊
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Modal (Static Backdrop) -->
+    <div
+      class="modal fade"
+      id="successModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">註冊成功</h5>
+          </div>
+          <div class="modal-body">您的資料已成功送出。</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              id="closeModalBtn"
+            >
+              關閉頁面
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./register.js" defer></script>
+  </body>
+</html>

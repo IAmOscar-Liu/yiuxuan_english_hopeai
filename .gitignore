@@ -1,0 +1,12 @@
+dist
+node_modules
+.env.local
+.env.production
+
+src-backup
+liff-backup
+
+# local
+test-project-001-5703b-firebase-adminsdk-fbsvc-12982fd266.json
+# production
+yoshunengloshproject-firebase-adminsdk-fbsvc-3a90b0a74d.json

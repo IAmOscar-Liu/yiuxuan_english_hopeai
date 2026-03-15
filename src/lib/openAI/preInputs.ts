@@ -1,0 +1,130 @@
+export const PRE_INPUTS = [
+  {
+    role: "user",
+    content: [
+      {
+        type: "input_text",
+        text: "我想聊聊",
+      },
+    ],
+  },
+  {
+    type: "reasoning",
+    id: "rs_0f1e1c44a9b2b9b50069b271e86c3c8193b23aafc55e5fc760",
+    summary: [
+      {
+        type: "summary_text",
+        text: "I’m thinking about starting with two sentences and then following up with a question. This sounds like a solid plan to keep the conversation engaging and interactive. I wonder what kind of question would best encourage further discussion?",
+      },
+    ],
+    encrypted_content:
+      "gAAAAABpsnHxSJx_dhZ2YibBmhi52g44aljzAuUbB1lKI8YXX7KksTskeAnQ4kTvu9OoYjF309w2vVsX-F4FsY98I5qc9_T7QlbACHDiVGHR2C4S2m9sYL7FyFYZEZ-pPkjM8nDeNqs6rN1HwhaNjTYS2ML3UzK7dyEvU8ds_e5TBZWSnq_5S-jvOwVEhJPWzd2gQjcU7MZ76GE_qkuYmDlAEd8EbVHTuhalu77NJyntgW_MtEAMfjvULptTcDKZLYqwo8SjScKtN51POIjO3pvG8V3qLRZTgvZEWUfq6qmMe9G9gsOlYEDA6a2rRE4b0V5CBwvr1DDOSdSbg7Q-009QlqnTy9YBlC3IDmIFiEKvKGvnqwBLCtzdnbH0pYFVr3NswkNFqcHeIOVqdCPW8qs3QpT5jG3enXIib5ljSojgs_hhEy4qzBW6DroKP69V7n2EpAeJTHFPNVUQw3fl7PxF9hqnhy6wTITh-jzTWTgZsYqFagru5b9b8_v_hhRTF3uAltshWjRg-vxHQGuTO2nBf2VoVGozUIZvG4KI9GghjxyiOLzG3B-qE3RjKt_k1iiaobg_6EO-5yufnKLqn36h-5YenfCGbwEH9Zy-TRDuslOfLTumkCEuXXXw43FFqhaDQSTQZ3jdHlGzIT4hwH53Fauc6t3gKNUqJg9S2jdouT4gdMJnk3U9BoJmwrLBT5YWCzq1ruBN6UsOAtPkSbG6QZnwYeFoIsj3vvno7dT_1o-PkqnyOcGfkEIAhfUzdFBlVr2a81JqGNejfWUGc2sHFGdWm3xHxN_fteyoeVDtVTFLvgpbayKMP8ghc3YQASdj4NbQvFtKAxQzDf4BnCq1De0Fn02u7aWjTUzKUMu2KTM-CcfVah2KjMZctRz9zdl1cnCBWUVGyu2pfui__cJ7HO0QgJiRIT_7XC1BGR2YnAzhATimt3HlXt6vE9delejKdh-1lwxc0lR1PMpXmb6dcLrvRsizm4SKyWpNhUKMl76Ixi64mb32lZ9mKjwz10ZTyZ93L9khtgL4wiugS2sgUCWtkIA7ZQ7mgDT6iGBa_OM0nM9BPvMaOTvq-51vTGK4mPysmx-XZd-CIABJuYYOndbAI7jNP1XfjQwRvhRLNZoW0EU6DCRv1CGJB_pbKGjURHQwK8s4545KH1GP8eyk2QUmO352gEqcurcgyxXDw6oB50VQgv57FDIzmCjdxJwjPOgZO2agAaqY-rpyqvnyFEA2pE0FZDbQBuvZw8_WzfPkfGnNsoh3kZIk1q0UYursVqc_Fxb_QwFfwh_FtxkWHnGyBC-E3PuLCU7D4Q8JO3O9CA5si8of0P50Dw6TxjK41SU-Mu76ubbFURS0LMSjBiWfOpTUDzoSrj7ooGrCMDSPRK-fuSppEJVTIGeVQsntV5JBDQ-S6Bk4WoVID33xgpaIE-3WfDisWIMyntWAB-cJTKoPIHWXPId8tio0oPgUkC_MJT61huyDDib7Ko_sffEI-q4ySZmkc2RkZB3JXq2ewf4v6tmXrTanLyK6egV98-YNnRMHuDkmop9O8lSF_-N6WNgBjJHtvSPbyRKMy_7d_g89dotJNWpzyTojors-cyV0Asj4il7VeH7JYQT9ekIkus9T5evyytZ5eO1MmGlQNeYnDXhMSERagEK3OOvIa89WC2v_l4xYXWTI7UWeoYYqUxHAXvu5rH0YUy-X4ZzlRy1YLODXlM4gioapYF3AwA6l5OGCQ3zvJbDjkRf-gxw6uv_DgVD43CX9Aa4HjNXRWp77moeJv6Ak8aEh5rfe_oXC06qTBJsmsepJDe9S6nh1vL2XVmEGEwHfUsFtwE62xbk1QFaGCMYFZ9uLPa-NarAMmEm_hTqvlO5TUZrPtVE6nZsfXrf2zUf6hJQhis-Ow3gcjJHvc5s9McoABBVnwAzXfbB_V0yLVC6SZ4zeMPnGuD_A1mtVE7R-4LEWOT9w_G_ehBk4PJG5riKUTYuLqQ3FpzvsVizSEd2w8EkaaMZuvWT4MPsdVUtGgznk4qOym53o0vdzcoTjaGLl6JDAR3LJ6ZLVKJnPgaG5e62pS37jhmsFAT5irMWoG5MruH8LCtLA8yjeFqGoX-1YJqUV9cCXIzpMt3yFPpjiWJ5PFclVXELLtY7eP-Q52zcRxR52lrxQdsCpGGbIPETlPWm47zxJa0kbNzoCFbAcAyb2aakjIDKAWT0_qyHWT1AVcNwMSAsVilnclVF9FuDkLG7uJhRyQMHacGvKW4BpnQo___o5dziKQfUQRqeT9uVDJcY8pgYO0wPKfZLXUaO5Pm_wDpSJrCdYmBiEmtJSUyVJfBU8YaHpRK-_pH8bvm6L6IYTzcS12hUyLbEJKimVvy-SfHVf6lYnVuKoVqkADwUc3TbqZstuE2VSO8Y2Dy8agS0jkw-SAA8cmvGfzypRNDxAwMKvBZMfT72QCBM1rxxpHkc2GdZ3a-NxaEJhTAcmR8wEaWN4u4BRVBxhkgxjt0e0xFQYZkdpGuMZwnHbnuaxvj0Z_q1kK8hgASpnh2K7eDmuOmE5HGRvcRr7EapTrn0_cMDQOBM9719nmycs64GOLRbC4jbECSVXUQwOor_Is2AyuIx0k2Pb5GcR2exfHA-JTRgRXv_dleJ1WNZv6GGiK6Np_QrNoggCP5hBKi6ie47ZAhz0SHRav8XbaFF8bbdNmwUvNRhrULHHfOctg7aZFlcWc-iXumitABt9i6QlJylNGXx4NFiEmIgBgjPlziSQ9Y5Ngo9lXnAiOHDO09BC5VT3L6BGd55XXBXX4hZreUkhFENy8vSjYJnr2rEBtmXbBUT8aRJTUI_L-kt2ZzjK16obeQUoCVCTNBPAzgfCdbRLcw_sQuEYlAX91WqmyBrPHC__YfhDnH0YOFlx2A4VyLYA6Q4VQK2iyaauyxgKeH_MEO0pdFaawmp1T2LiLV8Cq6h9iUNPyO4vSAWoIP0SEs1Ly98qUNtNeRVmMcW-Hs6E2d1CYHgHbHQhqeBymtHPizQ-0zyyJ9CdjYq7zsbu_VHtIy50JsqUvP9cxT-6-EwUf0VzvETZPU5hXvw0wzIr-paIiXXK7vmgQi1PqU5VUe5OgiCw0kLLIYzTRgkUuIFcA52slpZXSfmW9Yq5t5p3s-ZKfGP6VViCMeIS3DuH9Xg8veBnFCEPtRkcd_qw8FWDBInDQ7vzWHfDKs1AM4YBsqnCTUBuefdEZn8pEH_74XOeVcfqS4-08BKwYvqW2IgyvZRgI12zMC9aMAwLABZBLtC1yLf9ojK_4u1poLEtX6lbRvgyXgrZkHvY-ZDRqjfnFCRdl9dL60_u_CYtH3VKin6y6dM_DAiByCQ7XgCGHZL383O27ogxYtz2J5KBatH7srlJCaw-ZuYPwJDYhTad9MGKMABpNW07ySR6CHqo3eY614oPeby0uvvSEGXetSKq608e1F9Ojv8DGhHVf6AT4l2FrHzrW5gPKZMTZcuLDz6Luq_EYh6yo4sPgl6ED-0F460PUps_1SPh4LU_3spGXmuCRVwIxmN2ZqexiE1LoBTAQ8NaSE2O-Zq0Z-CcytdPA76OIkKPCocxVVdxQdK6_ltNA8JU",
+  },
+  {
+    id: "msg_0f1e1c44a9b2b9b50069b271f1089881939d8d1bbf173bac83",
+    role: "assistant",
+    content: [
+      {
+        type: "output_text",
+        text: "我是老艾，你的希望陪伴者。  \n我們先選一個：分享一件今天的小好事，或直接進主題？",
+      },
+    ],
+  },
+];
+
+export const PRE_INPUTS_GO_TO_TOPIC = [
+  {
+    role: "user",
+    content: [
+      {
+        type: "input_text",
+        text: "我想聊聊",
+      },
+    ],
+  },
+  {
+    type: "reasoning",
+    id: "rs_0a963807ad8384700069ab022c82488195bfc1186069b84b61",
+    summary: [],
+    encrypted_content:
+      "gAAAAABpqwIwcIeosbbIeqjsJ220Q4z_TozddbLrk7c07-a2PZrcE_FdtjWc5eKyMZx6xtp5Ir0hSFOhoOHUKQg-twUMEDEasz-WeWDRSftY2mpICgu8Irnqgbpo4SHAEhnGaq0kcvQGAfxc4ig8b-GX3QOVeCwUXfeoqI2LJAkbsqIEWBdr8frah-9RBwGaa99xeQBr2K-I1HMT4t9MthBv3NxL-LIIrR_evhPWVWHHrm2v25ePYbeAc5x_C9f0XU3Os_Oft1BL6UhwIPKo0DfkdGG8JIN_G86bUkn9YxBeehRz_-R8jfro04XmHat6sZIkrzw1GNz_tYKE_55_U4pstbuhhz3HVhA-nGVr4rl3zu6A0nDktQ3EDNAEItdeE-FGFVJJi9fs65u19Zo1-_khp48W7_rpFVWmHHvlqNlB5PTheOTuxQB4An2C0E0Hy9e_SWXYWCZuuhJIsKVNsHUE4KX6AbtYIe2NOfHuoiiKsW_o1JkYiCGdJIZWF24ItltMGOe9sk4M1I8UNHreagZAAgNs_-CkIOijv656p7ey5rR8xgt7y-PsWJ2OyKcW1cv1BUvaftDC0p9APFZkH95_a5iai36zxWljn7RBKfUjfOF5KsnVZFqz9bMdIZmzTl63JqYKnME6IsvNd74baytbSTcUZ9wEzWNzNQKexTtviIYFYXD0P8-ch6STtcuuJ6qa2hV8yOnX5-9ImKJHpPb7Oy71y0J19xPgza8njCtn0RvHqSryLamy5aq_YGFKre6qnH33fZHJ4NuWS7-2VR0_cQiwELWrXlTKF_14UxOTIaVJPMCkKa2zeBwaG-bWJ-X-3_YUkG0iNFqpKkuOc3mCqfoREbS4iKkfzUw9AcD3t_2x3-ML1fxMmbhOuYMStKUB2YhqdfIdx0gEe3mE5pxhC1Z7ag6dxLuDiZ2PVCNWOp-X1HNVxnMXXDLf4jr_TcTbEJeeC-AtPGdtZYqr1Egt8kLQoepXGL9jg0f75dQx4Xb0AWoH7gov4LAnuc9PC-6oF5bRv0jpabc0poRL3tcGajfbBGwOvhyHB2HpmZPVRrH_ZwBc2C7ta6m2rySDj4Tdt4gvh03LFGfQ6C_HzMNzaPJEu5GYmGVsM_wjfZfIfrD38ss3WvH5EYlz8sSeq-72yUL6w6gfBIrsfpkIKdkWXA0iHokkDkiB5PicQCLHD59b1WpW5e1jYUClhKhjI5aiBf_2LxksY429ljMc5MURqry2Gj8cpPcX-m9hZHe9528cBsVMzutADMMn8h-WDG67VIPHhnnaO6bkgNzzmnF24-A6vWnjjDedwg_kfc3dslOuseQnwYF9GXA4fHA9NMZwnnoE2JCyGxwWNkc3qvLjEjE3wHYrcCThFcbheTBZvfwX6d0LV6TOr-7EG5xhhyn3ZHnd6lWt4-QVn6tIgB8Zpq2HMh-vOMQ0PyMpmNkJPP7LiPlIoXuBU53e12mWrBdxBuQjAbwGVurFGM5m_bAVLV4ScazvW6Odk_e1NoTxrHQH978gCTlGO0-2p2k234RItoVjptcNUI8IuUBHWHEI4CKjOLcwKxIxbOmg6s96A49u_g8grlVNBlZTxS2S7e3kDSBZjFq9JRe4UQzC52Cl9d5Hdwx6CPlhIyv261PT-3j0opW1TWqZU47ECEfvuJ1-fXB-fxSaEfSPXQ3wM0cuk-pySmnM8WZ9VW5jYeYfOAlx4EGdSmZr8od4boEUh71ckMf5AbTF35uYCYwcGifvjV03Glzl5QEeaaCqFpqBcLlSoOMXgn8pVNAD7GUunuOBydAND8EjvjTf3wK4MW55ftFdF7B9gqqy5lhd4MCfaOAHtLhyROKYxUBrKRD2-DqT9nFgxMKN6gfhhE4aV5uxXSaj1jjGYkUTs86F7jiUj_Xz02CJcYQ=",
+  },
+  {
+    id: "msg_0a963807ad8384700069ab02307bc88195b6fadb861f1b20d4",
+    role: "assistant",
+    content: [
+      {
+        type: "output_text",
+        text: "我是老艾，你的希望陪伴者。  \n我們先選一個：分享一件今天的小好事，或直接進主題？",
+      },
+    ],
+  },
+  {
+    role: "user",
+    content: "直接進主題",
+  },
+  {
+    role: "assistant",
+    content: [
+      {
+        type: "output_text",
+        text: "好，我們直接進主題。  \n我們想聊今天發生的事，還是聊一直放在心裡的事？",
+      },
+    ],
+  },
+];
+
+export const PRE_INPUTS_SHARE_ONE_THING = [
+  {
+    role: "user",
+    content: [
+      {
+        type: "input_text",
+        text: "我想聊聊",
+      },
+    ],
+  },
+  {
+    type: "reasoning",
+    id: "rs_027719d57feda1b60069ad2875523c819698f489aa36c53838",
+    summary: [],
+    encrypted_content:
+      "gAAAAABprSh5C5Zta6v3KA6UOHCztUbCCerzP8kXRLOturEozEEQsgDjYtYqRYT7ZYjWSAufQX3k9ho_aKs7zEJm-mFCYCTwRmLF5qRUX60u2qayRF7MHEBKkjGRzI9VC6o0TXHBpPkrQ7Qh2kwK4Yoz9Irh7zY8qbg1NY1hJbuRaR434d78QhzvmPAaAz3mzkEfaQZjawvjAGDwfs6n2Ib9OQezSORAWZklTJ24sCF1-jL3gYCFHdyeqKnCoekK9GbqWe0xmRiMl_q9ty9vDiNgFL9YtFKRC04XoAxwV34yz7XZVRaQN44qQiDg7ZOTudD9zbdKV6ttx7wj52GtABSU0I9y_QvCt5ZzQTzHoZFY2y-F0vcpMDyW5m8ycny3Jgq6_VJYvnHHvQjAA7-4vI987DJ_eqOI2MPqV3kTmckunIDvU07XIIO_8gMPSxzgmY86sRpT5gYyVfIqgt4-SItHgVlEb-oNaAZqynSuuLZ9TQUQzDM8yTQBInSYUWli2EX6HGTt_y4ApzR33pCLU_AgUPxsGJpZp2I4Ca5kG9sEfriOiFKXQY8AbMN9hqIA33vIOyamRzzADqGlMI0fpguCtbgCt95KEi5owffY7z-yYZhmvTk-aQGEyQYIoqaQSh-5MUVZbaaCMliWUCzQBLVmZhO2wOPUfByMRzvAbGpAhR0DK4ojhD7LVfL1nCZEhM791td2rS3jmWtAbkMF7KfLrj32zNV9H0xBx9de-UbmDb9e0XeMkdXHEsp21fSmEAz6b5iPdy24Bz8_TQiVqoO-Y0AxT2LUO4nHrNJmI0N6BnV4rG1XdhoOlpuuJY0Ak5OFXZrtGjovRTF4-s7IVmuMIxvs9UxuVFgkXyiML3WmMke4S7anlJ3IzstGQVR_Ey-e7NnHTPjweg4H_KZsEd-hYtCD9pHJ8YqSVVMRkpmwO8CtcEAu-ZiYvMkt-w-PAQJoe1JDEVpWP8NJNK8bvMIwvdBrdvlysd8e8aW6nl_4KE5_4Zlsq-o3hEdBeyBVXwfeA3uvQIZ0eUHxDAGDHI8sufD2WWdVISr9XX7ae64g_xWMnwXjjVcq9o4uR69aU1cvnJDEaLT3PjYFiqPO_WrHY8jvOncSlS2_fhJA5divwSnnCWDY9i4IBiDRwu7S-qPMU2vgobU9KASR9Fe-fqEF0Vb-IVlPsVMEP8NHAhf8V9bNJgVQRLReLfOqYnuFLHpNXAbNBEHkZEFYFV7jBCa_beQ422NMppFzTsLsxO03qCXYnSfmGY1PXjktMfO3J9xjSUbrZNdwcL-Kta55zk8TA_10J5jttMa1vwDQld-bR9MLrT8Q9Thu92f64K8sAiGdflQddQlu8ADh2SbohJyevCF71O5tANhEWbIb7kQeAqt8jIJXvfvpqe8nx1aZDOqO5ZVek-bIYvcNaLFqmu1ajBNZkDMp0Vj52HRyzqtvNloWjNQ8PkUr85ucIp4852FtWo0wz6XbHcFdgXOiz5JONlBB0a9RKZBfCSCHF7RzZQcF5abFM3pqvh8hZXtm9L118eDhKuqK39AiT1FJ4HLs-9tjnzTZjafbcwbhiw4QqP1YJXGE-_kT_8gPbuwkulDEA2fseed-P_W0g827Gi8SrdvaA4Q5_ap_nnpfyY3vNxWrV98RlPd4VzC0MUJB40QfbRAQPEIftZxNDm2uS8drs_bzPKk8nYupHaOtEc5fAy-duKNVRji0NbwW4EqF4WjDndhYM7FtqqNODHmvRdqodkjNvlFd8jOthihYEwrPNneZKrI_WTkbvIuODjkfVPG6nrijrVsuceGYSaLVm4X7AO_RjQDK8HGEZ4qZp4qtopj05UVnhmJ2M9yRPsecCQ8pvBSsuaYAV0HI6fFimsGI8EU9siFOMYAkWU0J1SAThWelcOTDcSfkRXXG1o0qvGS7WpVmOThjtdI4iyAKNvn_DApRQ2mQ_rqdOdh-qslwoeOY5cymHwsyoEpVL6ALmvBfnQD9FYMgZd3vuXWeKnkXZ7J8URjNq94Xl-D9d_O3R-BbOJQQ15k=",
+  },
+  {
+    id: "msg_027719d57feda1b60069ad28793d78819697126200b053cb37",
+    role: "assistant",
+    content: [
+      {
+        type: "output_text",
+        text: "我是老艾，你的希望陪伴者。  \n我們先選一個：分享一件今天的小好事，或直接進主題？",
+      },
+    ],
+  },
+  {
+    role: "user",
+    content: [
+      {
+        type: "input_text",
+        text: "分享一件今天的小好事",
+      },
+    ],
+  },
+  {
+    type: "reasoning",
+    id: "rs_027719d57feda1b60069ad2892c97c8196ace6e78ef5799726",
+    summary: [],
+    encrypted_content:
+      "gAAAAABprSiejqeukphQJQ4W91vSDQYxnCr63ba3b5yU3gsMq5HjWmFpHtuWHkeVa76b76cVGQG2UzS4Y2BPLXU-fPKKa53Z5BoboAG3babPo-JjuUuRrmjp3F4PCNJnIFksBs6uyXEajS9cnfu1RVDwfIDDZ3_jgIjG7ZKRHhe6kQcZ6D0SMOTmSP3Ak8szGiGuQk7ELexcZgffnCaHsN4crLsDDva_FQsjE32SZkolXWZLDorHrFkq2PWNM3SUZXMA8NZXe-yqDBo1ec3MVEHC4nxNKkZms-Ph9WLtCSGxT82384LHyJMtGbaCNtr6JkJMqB4T8CS2cu910927iPJJR76u_YNkmrNdVJkgaKu9tkT1XMheusgWNL4TEscWrCPQhJlCaXeervXvSk5hmZ4FbwsqtOvqJQYdY3uWIdP0iuuhPixeGqkZYRCoklCcESw3uGnRJm1SaHtK20Is9qScm71EmERPs615DaCZR07lv7RL3Fa6wHkOzXd5FOZn8dev2ELbASuhsKzvwmhSWtkhDv2y52jLLMh0qS9QmSeEaureNPsVOYwCAhQgJXBR1_35mlIK6BHnV-cHnxMMv_mHyI-3vMn0ALDNcDbopSsKuXnHrek-_pQZ1RA7YsTzvRWqfah83Y171G7BTOm1-lE_LoSuyusmGcAz8keAzJrLCBAMEUEULR1XnYW-D2wZvKHCiO2lh-MS__opxODql5vIhNlHlL8tFv5EsizK8GbPgSU-K22oo9hBz5h-tvle2zLg9365SFb-dHqdYQ6T2t-ubb2R2Jfdv4VBaFh6qYfDaX2zSImTU1DINmpMhra6SaZkuQPiOATcfGy5AKdNO45T1a9YMNoY8zseXAzFrEpWM0izlx-5g04ep5yTWlJldewji8GCsrKNLUUm2cgVcg_smb699X2kCji3svGdGNRIUXfjVmEPkyGDsnk5DZYFZ-__Bx0QoLiqx1TUVZ7R5CEasxUFi17kB3Zzd6Q0fCVWFZCG8LEUe2Yv0gvRl1jA-uovQyrZ_v_b4GD4MQcrzXlrb1ZTFS-MACSPXZ_MZFr66d7YHGOBgFsfpeSGznYBFzD7ybyPDk0zeE5Z2ltYZHuxc3leARiWF7If_3rx0L1ZYlskJf_zn8ltPuJ7L-juX5jCK9z4Ts4Fk94gd4pFjyG5AIhUJFGzg4IAXK4xdSx-QkbbR3tIS3nt4pixWP6sVji9bJaNee12sy_jBXgSPRAlpOQvw4dnsnDJIH38SRhIN3pY7iQiyJgyv1TlEC1iUWiw-RDDXf2BDBOqYilR8MILVSZpQ3vESjyL8jRJxg5lwjl4Vvh4nsdo0SogN0eEx8Usz-ZbV8MIkEu3zqVWIlrF9ZB8Hmd_2RtAaOR4TaHuBs1-LrDxHGQ2RCtifcs0oKcWfRVdDsQi6cnfxP4di8V9IQXb-7Ku1FHqnMCNsBmUnfii8F6TrfD6ijQxxmSwKTwl8JwgSqJjTobghuoNEywQ3vZalfqhMLcWEOia6Lzp9QmHVCh3hrB-cBbObpPwzfpoiv2bTIckAWc39nkyQ9976WKxIE38h9bZ7kXoYQA1rgTEMgtSnNvrgsTicLUHBiCMx6w-R9Seupsqi8x8x09txCMsVA0KhUq1NfjwagU6e2AOpqUDPePTfjr-R-KSDu2FzlQjHeR-UubpkEphoq-3TbVdYqWAJCx_Q8Mdcm6s-mUPxOTlCN-1XVND40AvsDAixBoAEf4oO9Fesxh2KdCg28AdBp9XSGdj74aNkIn9N7tLSeg9LGjq7Z4aGZuqXnGfy0c-v5RGt0PvLBdIOYMXuV9a1KypU0nMJzA1vDD01uC5WD5bdevxCm62FG1FEdxnH69OVlUrwUsgm19UiqXChVuCVDDOzqkK32-qDC-aIITVIjsN0D9Qkai38d_xvhSTFsjTWqXzg7j4FBVlj3YsAzIVzxk90W0mUwRSkz4vzi54wTfLBsCbHgM4anv1J_VYcohUFus8F00bLhj_pkOEQCNci0RfszpzNuGNLcIhP0SSmYxOP8sIVVG45UlRjTUWvATNsc9p7Rl5Ojap6yEhLM_RsfYVKAA3bMPXC3xz1GGPWhpatRa1dgtIBPWRKYHU2-rE7SuNSmuTncROZ66xMC2RwBGvps0LlETj2H8bwcp55nrCeq0sLp5TK1Xtw2Q1FUBtJ2W0c0rcTrhGyLBlAUDe4kXNtBnWMPYC9byZBnwrc7Q29ttnNCHS4ieHU3rN7f3lCpIfRkCGEyd67du92Z1HlBtKsCQYVm_6FFmGNcKuKyd_bAHYkVtmcC1heL8zUZmrZoG3V9XLRvcAHvyTAYGU3-U-g_G-Q4zSehIG5psD9qWbsa8nOKcf2qY6H3kLzg-RSCW9purwkNvgzwFyWeM1S6hufGXl1l1XKQo255e5zsFJoZ4Xnt-sB2RIMBNfWjZ2vj6i2pQW5AO9mgtv5zX8LrjLvdeHjiz7XqDKcbvKX4OpHseVHpc07W71KrE8XyfRcGilmqVBhBFLTvNs2XrepehEBUi0wcTRa7Cn-G86FPG9WsqhSxofJEsSIQWXtTD_grIK1Tqh5MLaQRwJe5uErds7Ye4JbpF3wgFn06NqqHA13-aSfw1CTWsFQhpHwkktB1p7jsrMPrs6jLhX1zKwZKW73SC5rmuRoOhMz3yjJs69r6AFKTb67ZJJzNfi_QSsjcOApwU1rMZ6aHuHdvG7ppZEo2cNkhYmeu_ulUO4apAmd3cwR53V_vPGsgINgciewV-0KogTbTWis24JAeZU1DpKkkC0KC5rWvg4uvHP-qKVxIrGv18VqvcEhx0JRW1Y1xohZMXZxlmtjn6H7oCucJhrMMwZvlJSqCRGNnnhxbqPJ93WoAiwem-QYtBZb3w1G5qCr4XMbiLz58QoejhDNb-FP0PbrNwWj9_WvXhJ2I2JRBFqT2Bgiw-9QqDlHNRjyKAFJsaSY-vCVN393zQG9rbKahq2os08FyNqTuNotBJWpUCckZZr4-tnan9ZXDqb7X4KEL9pMBbqAOdcCjfxRnYJJfChOq6C5DlS1vEP2jH-JS_WqJbsgiWZjmCFHGoitHzhNADFnlRQsMtdSInyWQuQYe9oC-q2xmXm5yLf1ZxLziUKuI0pNB76-PCTZVd55aD_9Bg-5WkhAdyPHD_Ha1ZWxn9ki9k76U4ORzOufwMzllvtMQgZZylTxFZ3M46HtNFo2yyVU9n2GKFdIBPda8XBJqefS96e9aLyxLL4XpHbwnLu-C-9m6HWO6l8GezNAT6sAPJZyYUILym3-3FRYwYkwsr-rrZBstR4Xxxr7-ZrAroh8SaX33zqDsoVYalaYBtEIWo4O5gxvQsWxx5tttNxCKnM_2fKegTAmfjTgm7w9aHmguMJCplbRkiFOOJE_DDQiolSklF1aUTsnb6dQFr13cXeePT5La3EXyIsfwGDNDzYDgUBdskIb53IHSu3gmxTLgb5DxMtzJN9IpUC7SN-dG_4Gmh9UNzgi_1NaAD7JRMggwRitDXmzJFyfsZ-qcOa358eKUXgQWGs38Sij4w4u7g7OPuEWV5VBvpCXvOU9e2Ox_g7LSLFiQbuaQ78s4fK6vTHl51HNz1N2Qg84pEQ785yXicRqoof_WHkxxCQAlps9J3V0glzJoXleIhUXxWzgXuHYljFf8GYsSt8RNDbCJFdMRs0jdB7gs5qbOoPIebuT_QHM3k2-_AVHOVzxGklJ1XA-ZBHgaCPB0LZB6d2MIx0RRc83Vtdz4BEtzWDVHMyyV9hk4YrHNYoYBHyrRV4jxTtGTPaDpdCdcLxQlX994tSfvXXZp1meQ8-kIdDGXobGMwKBu62l-QFQZPTOBSlG0LFYGy8rYdTcEavqkryJ0bH9NmaWF3urasbJLVjhxVGsPiFL6DgpzvySZ-cL1oaeUPfY1nHZZVW8SZayPDtWpb_Pm4zQEfAVO7tnGo0oWwCqr19Dl5XhDi37KpbI7-X3zHuVBUfODUl0FGHmXdUt4x3uEv3xVybp00Fb0Bi51Zbow9odcxfnb3Fq_xTJZ26wK118s8CcJYtZx0HzNbRXh1ARkFzTDu9uyCidChhP8gSzpFT5UCestz45oJWnUpiF1p1C_TE9yB3d22JGip5c8lz3QgPOvpA4hYgf36J6SSYdnfpmHXWSqUGhcfd6ZYYvZ9wRAGpS0WAq2AUQ_P8qJt6QnIIWlTpKvLgR7Wu4xCLzgPjkYTYNkkE3xiTnKVaFPx72Ghy82bhUjIeOncOFXfdTp51pXkPfmX3YktuAuJZCqKqA2ECTAjUNngdRc1j0CuFawXorVtlYmcmNNqS0jKzFyyR4QHq2ZYXbgm6W3vTVOhBQB4BDfWjcOaDb-gcGmQk_y28Z_GLbj93rpzr4PWTPIhHtyI9qdEbksl22YR2ech7N_QsDhoOo1b91FbcgjCM0vlE-C3VU4rQR38qnlPClXU2uk5qxlTuqsPSh6W8Z7EFX4Um_JGyF6ltDZO8t4CdpA1hpQ-JytmbyiWk6qiFaZWqWvnggmnpq4pIFydlb-JJwHwznzSGkFMPnDlPweC_3ETmGXzf9lO3u6aSGBfNMqKGO4qxP2CrMVbiIdzE1ggIgTyiJ69cml7H5XQsidh08iF8He_RE_cHeQeFzA==",
+  },
+  {
+    id: "msg_027719d57feda1b60069ad289e628c8196ae6f2f6b2697bfaf",
+    role: "assistant",
+    content: [
+      {
+        type: "output_text",
+        text: "好，願意先抓住一個亮點很珍貴。  \n把那件今天的小好事，用一句話說出來就好。",
+      },
+    ],
+  },
+];
