@@ -6,6 +6,12 @@ const registerForm = document.getElementById("registerForm");
 const nicknameInput = document.getElementById("nickname");
 const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
+const birthdayInput = document.getElementById("birthday");
+const identitySelect = document.getElementById("identity");
+const identityOtherInput = document.getElementById("identity-other");
+// usageCheckboxes will be queried in the submit handler
+const usageOtherCheckbox = document.getElementById("usage-other-checkbox");
+const usageOtherInput = document.getElementById("usage-other");
 const successModalEl = document.getElementById("successModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 
@@ -26,14 +32,87 @@ const closeModalBtn = document.getElementById("closeModalBtn");
     return;
   }
 
-  // 3. Populate Form
+  // 3. Check if user already registered
+  try {
+    const res = await fetch(`/api/user/${userId}`);
+    const resData = await res.json();
+    if (res.ok && resData.success === true) {
+      if (resData.data?.user) {
+        // User already registered, redirect to profile
+        window.location.href = "profile.html";
+        return;
+      }
+
+      if (resData.data?.settings) {
+        const settings = resData.data.settings;
+        // Inject Identities
+        if (settings.identities) {
+          const identitySelect = document.getElementById("identity");
+          const otherOption =
+            identitySelect.querySelector('option[value="其他"]');
+          settings.identities.forEach((item) => {
+            const opt = document.createElement("option");
+            opt.value = item.key;
+            opt.textContent = item.label;
+            identitySelect.insertBefore(opt, otherOption);
+          });
+        }
+        // Inject Usages
+        if (settings.usages) {
+          const usageContainer = document.getElementById("usage-container");
+          settings.usages.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.className = "form-check";
+            div.innerHTML = `
+              <input
+                class="form-check-input usage-checkbox"
+                type="checkbox"
+                value="${item.key}"
+                id="usage${index}"
+              />
+              <label class="form-check-label" for="usage${index}">
+                ${item.label}
+              </label>
+            `;
+            usageContainer.appendChild(div);
+          });
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Error checking registration status:", err);
+  }
+
+  // 4. Populate Form
   if (profile?.displayName) {
     nicknameInput.value = profile.displayName;
   }
 
-  // 4. Show Form
+  // Set default birthday to ~30 years ago
+  const defaultDate = new Date();
+  defaultDate.setFullYear(defaultDate.getFullYear() - 30);
+  birthdayInput.value = defaultDate.toISOString().split("T")[0];
+
+  // 5. Show Form
   loadingDiv.classList.add("hidden");
   formContainer.classList.remove("hidden");
+
+  // Show/Hide Other Input
+  identitySelect.addEventListener("change", (e) => {
+    if (e.target.value === "其他") {
+      identityOtherInput.classList.remove("hidden");
+    } else {
+      identityOtherInput.classList.add("hidden");
+    }
+  });
+
+  usageOtherCheckbox.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      usageOtherInput.classList.remove("hidden");
+    } else {
+      usageOtherInput.classList.add("hidden");
+    }
+  });
 
   // Initialize Bootstrap Modal
   let successModal;
@@ -41,13 +120,32 @@ const closeModalBtn = document.getElementById("closeModalBtn");
     successModal = new window.bootstrap.Modal(successModalEl);
   }
 
-  // 5. Handle Form Submit
+  // 6. Handle Form Submit
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const nickname = nicknameInput.value.trim();
     const email = emailInput.value.trim();
     const phone = phoneInput.value.trim();
+    const birthday = birthdayInput.value;
+    let identity = identitySelect.value;
+    if (identity === "其他") {
+      identity = identityOtherInput.value.trim();
+    }
+
+    const usages = [];
+    const currentUsageCheckboxes = document.querySelectorAll(".usage-checkbox");
+    currentUsageCheckboxes.forEach((cb) => {
+      if (cb.checked) {
+        if (cb.id === "usage-other-checkbox") {
+          const otherVal = usageOtherInput.value.trim();
+          if (otherVal) usages.push(otherVal);
+        } else {
+          usages.push(cb.value);
+        }
+      }
+    });
+
     const submitBtn = registerForm.querySelector('button[type="submit"]');
 
     if (!nickname) {
@@ -71,6 +169,9 @@ const closeModalBtn = document.getElementById("closeModalBtn");
             nickname,
             email,
             phone,
+            birthday,
+            identity,
+            usages,
           },
         }),
       });
@@ -92,7 +193,7 @@ const closeModalBtn = document.getElementById("closeModalBtn");
     }
   });
 
-  // 6. Handle Modal Close (Close LIFF)
+  // 7. Handle Modal Close (Close LIFF)
   closeModalBtn.addEventListener("click", () => {
     closeLiff();
   });

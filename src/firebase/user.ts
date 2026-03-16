@@ -1,4 +1,5 @@
 import admin from "../firebase-admin";
+import { isDev } from "../lib/helper";
 
 export async function createUser(
   userId: string,
@@ -19,7 +20,7 @@ export async function createUser(
       { merge: true },
     );
 
-    if (option?.showDebug) {
+    if (option?.showDebug || isDev()) {
       console.log(`[DEBUG] User document created for userId: ${userId}`);
     }
     return true;
@@ -39,7 +40,7 @@ export async function getUserDoc(
     const doc = await userDocRef.get();
 
     if (doc.exists) {
-      if (option?.showDebug) {
+      if (option?.showDebug || isDev()) {
         console.log(`[DEBUG] User document found for userId: ${userId}`);
       }
       return { ...doc.data(), id: doc.id };
@@ -66,7 +67,7 @@ export async function updateUserDoc(
       updatedAt: now,
     });
 
-    if (option?.showDebug) {
+    if (option?.showDebug || isDev()) {
       console.log(`[DEBUG] User document updated for userId: ${userId}`);
     }
     return true;

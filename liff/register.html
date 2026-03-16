@@ -17,6 +17,10 @@
       .hidden {
         display: none;
       }
+      ::placeholder {
+        color: #adb5bd !important;
+        opacity: 0.6 !important;
+      }
     </style>
   </head>
   <body>
@@ -33,6 +37,7 @@
       <div id="register-form-container" class="hidden">
         <h2 class="mb-4 text-center">會員註冊</h2>
         <form id="registerForm">
+          <h5 class="mb-3 border-bottom pb-2 text-primary">基本資料</h5>
           <div class="mb-3">
             <label for="nickname" class="form-label"
               >暱稱 <span class="text-danger">*</span></label
@@ -63,6 +68,56 @@
               placeholder="0912345678"
             />
           </div>
+
+          <div class="mb-3">
+            <label for="birthday" class="form-label">生日</label>
+            <input type="date" class="form-control" id="birthday" />
+          </div>
+
+          <h5 class="mb-3 border-bottom pb-2 mt-4 text-primary">背景資訊</h5>
+          <div class="mb-3">
+            <label for="identity" class="form-label"
+              >你目前最主要的身份比較接近哪一種？</label
+            >
+            <select class="form-select" id="identity">
+              <option value="" selected disabled>請選擇</option>
+              <!-- Options will be injected -->
+              <option value="其他">其他</option>
+            </select>
+            <input
+              type="text"
+              class="form-control mt-2 hidden"
+              id="identity-other"
+              placeholder="請輸入您的身份"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"
+              >你這次主要想用它來做什麼？（可複選）</label
+            >
+            <div id="usage-container">
+              <!-- Checkboxes will be injected -->
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input usage-checkbox"
+                type="checkbox"
+                value="其他"
+                id="usage-other-checkbox"
+              />
+              <label class="form-check-label" for="usage-other-checkbox">
+                其他
+              </label>
+            </div>
+            <input
+              type="text"
+              class="form-control mt-2 hidden"
+              id="usage-other"
+              placeholder="請輸入其他用途"
+            />
+          </div>
+
           <button type="submit" class="btn btn-primary w-100 btn-lg mt-3">
             註冊
           </button>

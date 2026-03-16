@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { CUSTOM_SETTINGS } from "../constants";
 import { createUser, getUserDoc, updateUserDoc } from "../firebase/user";
 import { handleServiceError } from "../lib/error";
 import { sendJsonResponse } from "../lib/helper";
@@ -12,10 +13,13 @@ router.get("/:userId", async (req, res) => {
   try {
     const userId = req.params.userId;
     const user = await getUserDoc(userId);
-    if (!user) return sendJsonResponse(res, { success: true, data: null });
     sendJsonResponse(res, {
       success: true,
-      data: { user, token: generateToken(user) },
+      data: {
+        user,
+        token: user ? generateToken(user) : null,
+        settings: CUSTOM_SETTINGS,
+      },
     });
   } catch (error) {
     sendJsonResponse(res, handleServiceError(error));

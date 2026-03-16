@@ -75,21 +75,23 @@ function getSessionTypeText(session_type: string) {
   }
 }
 
-// {
-// "complete": true,
-// "block_type": "害怕失控",
-// "feasibility": 9,
-// "task_done": 1,
-// "session_stage": 10,
-// "next_step": "下次在路上遇到推銷員、快要點頭前，先停十五秒，心裡先想「他現在問這句，是想把我帶去哪裡」，再想「我如果回答可能會發生什麼」，最後問自己「我到底想不想要繼續這個對話」再決定要不要接下去聊",
-// "planned_time": "下次在路上遇到推銷員、快要點頭前的那一刻",
-// "planned_duration": "十五秒",
-// "success_definition": "在快要點頭前完成一次十五秒停下來，想完動機與後果，並在心裡得到一句「我到底想不想繼續這個對話」再行動",
-// "task_status": "completed",
-// "session_type": "follow_up",
-// "summary": "本輪把逛街時的五分鐘自問延伸到面對推銷員，改成點頭前先停十五秒看意圖與後果，再決定要不要繼續對話。",
-// "coach_feedback": "我們把最容易被帶著走的那一秒抓出來，改成一個超短但有效的停一下，讓決定權回到自己手上。"
-// }
+/*
+{
+"complete": true,
+"block_type": "害怕失控",
+"feasibility": 8,
+"task_done": 1,
+"session_stage": 10,
+"next_step": "下班前用十五分鐘上人力銀行瀏覽約三十個職缺，挑出三到五個喜歡的",
+"planned_time": "下班前十五分鐘",
+"planned_duration": "十五分鐘",
+"success_definition": "從約三十個職缺中挑出三到五個喜歡的職缺",
+"task_status": "",
+"session_type": "new_topic",
+"summary": "本輪聚焦在離職後空窗期帶來的收入不確定與房租、卡費壓力，先把焦慮轉成可估的行動：下班前用十五分鐘在職缺平台瀏覽約三十個職缺，挑出三到五個喜歡的，作為後續推算空窗期與求職節奏的起點。",
+"coach_feedback": "把「空窗多久」從腦內擔心改成一個十五分鐘可完成的小步，這個抓法很務實。"
+}
+*/
 
 export function createReportString(report: Report) {
   let result = "🎉 恭喜您完成此次對話！以下是對話成果：\n\n";

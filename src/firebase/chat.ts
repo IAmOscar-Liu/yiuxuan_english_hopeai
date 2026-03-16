@@ -1,4 +1,5 @@
 import admin from "../firebase-admin";
+import { isDev } from "../lib/helper";
 import { ChatType, ChatMessage, Report } from "../lib/openAI/type";
 
 export async function saveUnfinishedChat(
@@ -18,7 +19,7 @@ export async function saveUnfinishedChat(
     await chatDocRef.set(data);
 
     console.log(
-      option?.showDebug
+      option?.showDebug || isDev()
         ? `[DEBUG] Saved document hopeai_unfinished_chat for userId: ${userId} with data: ${JSON.stringify(
             data,
           )}`
@@ -45,7 +46,7 @@ export async function getUnfinishedChat(
 
     if (chatDoc.exists) {
       console.log(
-        option?.showDebug
+        option?.showDebug || isDev()
           ? `Document unfinished chat for userId ${userId}: ${chatDoc.data()}`
           : `Document unfinished chat for userId ${userId} found`,
       );
@@ -77,7 +78,7 @@ export async function deleteUnfinishedChat(
     await chatDocRef.delete();
 
     console.log(
-      option?.showDebug
+      option?.showDebug || isDev()
         ? `[DEBUG] Deleted document hopeai_unfinished_chat for userId: ${userId}`
         : `Document unfinished chat for userId ${userId} has been deleted.`,
     );

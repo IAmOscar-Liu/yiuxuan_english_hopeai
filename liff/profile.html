@@ -24,6 +24,10 @@
       .hidden {
         display: none;
       }
+      ::placeholder {
+        color: #adb5bd !important;
+        opacity: 0.6 !important;
+      }
       .profile-card {
         border: none;
         border-radius: 1rem;
@@ -77,6 +81,7 @@
           <div class="card-body p-4">
             <!-- View Mode -->
             <div id="view-mode">
+              <h5 class="mb-3 border-bottom pb-2 text-primary">基本資料</h5>
               <div class="info-item">
                 <div class="info-label">暱稱</div>
                 <div class="info-value" id="nickname"></div>
@@ -89,17 +94,35 @@
                 <div class="info-label">電話號碼</div>
                 <div class="info-value" id="phone"></div>
               </div>
-              <div class="info-item mb-0">
+              <div class="info-item">
+                <div class="info-label">生日</div>
+                <div class="info-value" id="birthday"></div>
+              </div>
+              <div class="info-item">
                 <div class="info-label">註冊時間</div>
                 <div class="info-value" id="createdAt"></div>
+              </div>
+              <h5 class="mb-3 border-bottom pb-2 mt-4 text-primary">
+                背景資訊
+              </h5>
+              <div class="info-item">
+                <div class="info-label">目前身份</div>
+                <div class="info-value" id="identity"></div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">主要用途</div>
+                <div class="info-value" id="usage"></div>
               </div>
             </div>
 
             <!-- Edit Mode -->
             <div id="edit-mode" class="hidden">
               <form id="editForm">
+                <h5 class="mb-3 border-bottom pb-2 text-primary">基本資料</h5>
                 <div class="mb-3">
-                  <label for="nickname-input" class="form-label">暱稱</label>
+                  <label for="nickname-input" class="form-label"
+                    >暱稱 <span class="text-danger">*</span></label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -115,6 +138,57 @@
                   <label for="phone-input" class="form-label">電話號碼</label>
                   <input type="tel" class="form-control" id="phone-input" />
                 </div>
+                <div class="mb-3">
+                  <label for="birthday-input" class="form-label">生日</label>
+                  <input type="date" class="form-control" id="birthday-input" />
+                </div>
+
+                <h5 class="mb-3 border-bottom pb-2 mt-4 text-primary">
+                  背景資訊
+                </h5>
+                <div class="mb-3">
+                  <label for="identity-input" class="form-label"
+                    >你目前最主要的身份比較接近哪一種？</label
+                  >
+                  <select class="form-select" id="identity-input">
+                    <option value="" selected disabled>請選擇</option>
+                    <!-- Options will be injected -->
+                    <option value="其他">其他</option>
+                  </select>
+                  <input
+                    type="text"
+                    class="form-control mt-2 hidden"
+                    id="identity-other-input"
+                    placeholder="請輸入您的身份"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label"
+                    >你這次主要想用它來做什麼？（可複選）</label
+                  >
+                  <div id="usage-container">
+                    <!-- Checkboxes will be injected -->
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input usage-checkbox"
+                      type="checkbox"
+                      value="其他"
+                      id="usage-other-checkbox"
+                    />
+                    <label class="form-check-label" for="usage-other-checkbox">
+                      其他
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control mt-2 hidden"
+                    id="usage-other-input"
+                    placeholder="請輸入其他用途"
+                  />
+                </div>
+
                 <div class="d-flex gap-2">
                   <button
                     type="button"

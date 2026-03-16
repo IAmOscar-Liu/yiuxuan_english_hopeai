@@ -1,11 +1,14 @@
 import { init, getProfile } from "./liff.js";
-import { formatDateTime } from "./utils.js";
+import { formatDateTime, calculateAge } from "./utils.js";
 
 const loadingDiv = document.getElementById("loading");
 const profileContainer = document.getElementById("profile-container");
 const nicknameEl = document.getElementById("nickname");
 const emailEl = document.getElementById("email");
 const phoneEl = document.getElementById("phone");
+const birthdayEl = document.getElementById("birthday");
+const identityEl = document.getElementById("identity");
+const usageEl = document.getElementById("usage");
 const createdAtEl = document.getElementById("createdAt");
 
 // Edit mode elements
@@ -17,6 +20,12 @@ const editForm = document.getElementById("editForm");
 const nicknameInput = document.getElementById("nickname-input");
 const emailInput = document.getElementById("email-input");
 const phoneInput = document.getElementById("phone-input");
+const birthdayInput = document.getElementById("birthday-input");
+const identitySelect = document.getElementById("identity-input");
+const identityOtherInput = document.getElementById("identity-other-input");
+// usageCheckboxes will be queried when needed
+const usageOtherCheckbox = document.getElementById("usage-other-checkbox");
+const usageOtherInput = document.getElementById("usage-other-input");
 const saveBtn = document.getElementById("saveBtn");
 const updateSuccessModalEl = document.getElementById("updateSuccessModal");
 
@@ -39,6 +48,48 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
 
   let currentUser = null;
   let authToken = "";
+  let apiSettings = null;
+
+  const renderUserInfo = (user) => {
+    nicknameEl.textContent = user.nickname || "-";
+    emailEl.textContent = user.email || "-";
+    phoneEl.textContent = user.phone || "-";
+    const age = calculateAge(user.birthday);
+    birthdayEl.textContent = user.birthday
+      ? `${user.birthday}${age !== null ? ` (${age} 歲)` : ""}`
+      : "-";
+
+    // Map identity key to label
+    let identityDisplay = user.identity || "-";
+    if (apiSettings?.identities) {
+      const found = apiSettings.identities.find((i) => i.key === user.identity);
+      if (found) identityDisplay = found.label;
+    }
+    identityEl.textContent = identityDisplay;
+
+    // Map usage keys to labels
+    if (user.usages && user.usages.length > 0) {
+      const labels = user.usages.map((u) => {
+        if (apiSettings?.usages) {
+          const found = apiSettings.usages.find((item) => item.key === u);
+          return found ? found.label : u;
+        }
+        return u;
+      });
+      usageEl.innerHTML = labels
+        .map((label) => `<div class="mb-1">• ${label}</div>`)
+        .join("");
+    } else {
+      usageEl.textContent = "-";
+    }
+
+    if (user.createdAt && user.createdAt._seconds) {
+      const dateObj = new Date(user.createdAt._seconds * 1000);
+      createdAtEl.textContent = formatDateTime(dateObj);
+    } else {
+      createdAtEl.textContent = formatDateTime(null);
+    }
+  };
 
   // 3. Fetch user data from your API
   try {
@@ -50,21 +101,53 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
       currentUser = user;
       authToken = resData.data.token;
 
-      // 4. Render user info
-      nicknameEl.textContent = user.nickname || "-";
-      emailEl.textContent = user.email || "-";
-      phoneEl.textContent = user.phone || "-";
-
-      if (user.createdAt && user.createdAt._seconds) {
-        const dateObj = new Date(user.createdAt._seconds * 1000);
-        createdAtEl.textContent = formatDateTime(dateObj);
-      } else {
-        createdAtEl.textContent = formatDateTime(null);
+      if (resData.data.settings) {
+        apiSettings = resData.data.settings;
+        const settings = apiSettings;
+        // Inject Identities
+        if (settings.identities) {
+          const identitySelect = document.getElementById("identity-input");
+          const otherOption =
+            identitySelect.querySelector('option[value="其他"]');
+          settings.identities.forEach((item) => {
+            const opt = document.createElement("option");
+            opt.value = item.key;
+            opt.textContent = item.label;
+            identitySelect.insertBefore(opt, otherOption);
+          });
+        }
+        // Inject Usages
+        if (settings.usages) {
+          const usageContainer = document.getElementById("usage-container");
+          settings.usages.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.className = "form-check";
+            div.innerHTML = `
+              <input
+                class="form-check-input usage-checkbox"
+                type="checkbox"
+                value="${item.key}"
+                id="usage${index}"
+              />
+              <label class="form-check-label" for="usage${index}">
+                ${item.label}
+              </label>
+            `;
+            usageContainer.appendChild(div);
+          });
+        }
       }
+
+      // 4. Render user info
+      renderUserInfo(user);
 
       // 5. Show profile
       loadingDiv.classList.add("hidden");
       profileContainer.classList.remove("hidden");
+    } else if (res.ok && resData.success === true && !resData.data?.user) {
+      // User not found, redirect to register
+      window.location.href = "register.html";
+      return;
     } else {
       loadingDiv.innerHTML = `<div class='text-danger'>無法取得使用者資料：${resData.message || "伺服器錯誤"}</div>`;
     }
@@ -74,6 +157,22 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
   }
 
   // Event Listeners for Edit Mode
+  identitySelect.addEventListener("change", (e) => {
+    if (e.target.value === "其他") {
+      identityOtherInput.classList.remove("hidden");
+    } else {
+      identityOtherInput.classList.add("hidden");
+    }
+  });
+
+  usageOtherCheckbox.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      usageOtherInput.classList.remove("hidden");
+    } else {
+      usageOtherInput.classList.add("hidden");
+    }
+  });
+
   editBtn.addEventListener("click", () => {
     if (!currentUser) return;
 
@@ -81,6 +180,62 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
     nicknameInput.value = currentUser.nickname || "";
     emailInput.value = currentUser.email || "";
     phoneInput.value = currentUser.phone || "";
+
+    if (currentUser.birthday) {
+      birthdayInput.value = currentUser.birthday;
+    } else {
+      const defaultDate = new Date();
+      defaultDate.setFullYear(defaultDate.getFullYear() - 30);
+      birthdayInput.value = defaultDate.toISOString().split("T")[0];
+    }
+
+    const standardIdentities = apiSettings?.identities?.map((i) => i.key) || [];
+    if (currentUser.identity) {
+      if (standardIdentities.includes(currentUser.identity)) {
+        identitySelect.value = currentUser.identity;
+        identityOtherInput.classList.add("hidden");
+      } else {
+        identitySelect.value = "其他";
+        identityOtherInput.value = currentUser.identity;
+        identityOtherInput.classList.remove("hidden");
+      }
+    } else {
+      identitySelect.value = "";
+      identityOtherInput.classList.add("hidden");
+    }
+
+    const standardUsages = apiSettings?.usages?.map((u) => u.key) || [];
+    let hasOtherUsage = false;
+    let otherUsageVal = "";
+
+    const currentUsageCheckboxes = document.querySelectorAll(".usage-checkbox");
+    currentUsageCheckboxes.forEach((cb) => {
+      if (cb.id === "usage-other-checkbox") return;
+      if (currentUser.usages && currentUser.usages.includes(cb.value)) {
+        cb.checked = true;
+      } else {
+        cb.checked = false;
+      }
+    });
+
+    if (currentUser.usages) {
+      const otherUsages = currentUser.usages.filter(
+        (u) => !standardUsages.includes(u),
+      );
+      if (otherUsages.length > 0) {
+        hasOtherUsage = true;
+        otherUsageVal = otherUsages.join(", ");
+      }
+    }
+
+    usageOtherCheckbox.checked = hasOtherUsage;
+    if (hasOtherUsage) {
+      usageOtherInput.value = otherUsageVal;
+      usageOtherInput.classList.remove("hidden");
+    } else {
+      usageOtherInput.value = "";
+      usageOtherInput.classList.add("hidden");
+    }
 
     // Toggle UI
     viewMode.classList.add("hidden");
@@ -97,11 +252,29 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
   editForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const nicknameValue = nicknameInput.value.trim();
+    if (!nicknameValue) {
+      alert("請輸入暱稱");
+      return;
+    }
+
     const newData = {
-      nickname: nicknameInput.value.trim(),
+      nickname: nicknameValue,
       email: emailInput.value.trim(),
       phone: phoneInput.value.trim(),
+      birthday: birthdayInput.value,
+      identity:
+        identitySelect.value === "其他"
+          ? identityOtherInput.value.trim()
+          : identitySelect.value,
+      usages: Array.from(document.querySelectorAll(".usage-checkbox"))
+        .filter((cb) => cb.checked && cb.id !== "usage-other-checkbox")
+        .map((cb) => cb.value),
     };
+
+    if (usageOtherCheckbox.checked && usageOtherInput.value.trim()) {
+      newData.usages.push(usageOtherInput.value.trim());
+    }
 
     saveBtn.disabled = true;
     saveBtn.innerText = "儲存中...";
@@ -123,9 +296,7 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
         currentUser = { ...currentUser, ...newData };
 
         // Update UI
-        nicknameEl.textContent = currentUser.nickname || "-";
-        emailEl.textContent = currentUser.email || "-";
-        phoneEl.textContent = currentUser.phone || "-";
+        renderUserInfo(currentUser);
 
         // Show Success Modal
         const modal = new window.bootstrap.Modal(updateSuccessModalEl);

@@ -96,7 +96,9 @@ export class OpenAILib {
       const response = await openai.responses.create({
         prompt: {
           id: process.env.OPENAI_PROMPT_ID!,
-          version: process.env.OPENAI_PROMPT_VERSION!,
+          ...(process.env.OPENAI_PROMPT_VERSION
+            ? { version: process.env.OPENAI_PROMPT_VERSION }
+            : {}),
         },
         // @ts-expect-error
         input,
