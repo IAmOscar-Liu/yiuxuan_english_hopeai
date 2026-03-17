@@ -13,21 +13,6 @@ export function formatDateTime(dateInput) {
   return `${year}/${month}/${day} ${hours}:${minutes}`;
 }
 
-export function calculateAge(birthdayStr) {
-  if (!birthdayStr) return null;
-  const birthday = new Date(birthdayStr);
-  const today = new Date();
-  let age = today.getFullYear() - birthday.getFullYear();
-  const monthDiff = today.getMonth() - birthday.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < birthday.getDate())
-  ) {
-    age--;
-  }
-  return age;
-}
-
 export function getTaskStatusText(task_status) {
   switch (task_status) {
     case "completed":

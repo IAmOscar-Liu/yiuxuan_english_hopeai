@@ -91,12 +91,8 @@
                 <div class="info-value" id="email"></div>
               </div>
               <div class="info-item">
-                <div class="info-label">電話號碼</div>
-                <div class="info-value" id="phone"></div>
-              </div>
-              <div class="info-item">
-                <div class="info-label">生日</div>
-                <div class="info-value" id="birthday"></div>
+                <div class="info-label">年齡範圍</div>
+                <div class="info-value" id="age-range"></div>
               </div>
               <div class="info-item">
                 <div class="info-label">註冊時間</div>
@@ -135,12 +131,13 @@
                   <input type="email" class="form-control" id="email-input" />
                 </div>
                 <div class="mb-3">
-                  <label for="phone-input" class="form-label">電話號碼</label>
-                  <input type="tel" class="form-control" id="phone-input" />
-                </div>
-                <div class="mb-3">
-                  <label for="birthday-input" class="form-label">生日</label>
-                  <input type="date" class="form-control" id="birthday-input" />
+                  <label for="age-range-input" class="form-label"
+                    >年齡範圍</label
+                  >
+                  <select class="form-select" id="age-range-input">
+                    <option value="" selected disabled>請選擇</option>
+                    <!-- Options will be injected -->
+                  </select>
                 </div>
 
                 <h5 class="mb-3 border-bottom pb-2 mt-4 text-primary">

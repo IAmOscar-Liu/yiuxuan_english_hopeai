@@ -13,6 +13,15 @@ export const CUSTOM_SETTINGS = {
     { key: "moving_forward", label: "想把一件事往前推進" },
     { key: "companion", label: "想找人陪我想一想" },
   ],
+  ageRanges: [
+    { key: "lt15", label: "<15" },
+    { key: "15-25", label: "15-25" },
+    { key: "25-34", label: "25-34" },
+    { key: "35-44", label: "35-44" },
+    { key: "45-54", label: "45-54" },
+    { key: "55-64", label: "55-64" },
+    { key: "gt54", label: ">54" },
+  ],
 };
 
 export class Time {

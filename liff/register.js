@@ -5,8 +5,7 @@ const formContainer = document.getElementById("register-form-container");
 const registerForm = document.getElementById("registerForm");
 const nicknameInput = document.getElementById("nickname");
 const emailInput = document.getElementById("email");
-const phoneInput = document.getElementById("phone");
-const birthdayInput = document.getElementById("birthday");
+const ageRangeSelect = document.getElementById("age-range");
 const identitySelect = document.getElementById("identity");
 const identityOtherInput = document.getElementById("identity-other");
 // usageCheckboxes will be queried in the submit handler
@@ -77,6 +76,16 @@ const closeModalBtn = document.getElementById("closeModalBtn");
             usageContainer.appendChild(div);
           });
         }
+        // Inject Age Ranges
+        if (settings.ageRanges) {
+          const ageRangeSelect = document.getElementById("age-range");
+          settings.ageRanges.forEach((item) => {
+            const opt = document.createElement("option");
+            opt.value = item.key;
+            opt.textContent = item.label;
+            ageRangeSelect.appendChild(opt);
+          });
+        }
       }
     }
   } catch (err) {
@@ -87,11 +96,6 @@ const closeModalBtn = document.getElementById("closeModalBtn");
   if (profile?.displayName) {
     nicknameInput.value = profile.displayName;
   }
-
-  // Set default birthday to ~30 years ago
-  const defaultDate = new Date();
-  defaultDate.setFullYear(defaultDate.getFullYear() - 30);
-  birthdayInput.value = defaultDate.toISOString().split("T")[0];
 
   // 5. Show Form
   loadingDiv.classList.add("hidden");
@@ -126,8 +130,7 @@ const closeModalBtn = document.getElementById("closeModalBtn");
 
     const nickname = nicknameInput.value.trim();
     const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const birthday = birthdayInput.value;
+    const ageRange = ageRangeSelect.value;
     let identity = identitySelect.value;
     if (identity === "其他") {
       identity = identityOtherInput.value.trim();
@@ -168,8 +171,7 @@ const closeModalBtn = document.getElementById("closeModalBtn");
           data: {
             nickname,
             email,
-            phone,
-            birthday,
+            ageRange,
             identity,
             usages,
           },

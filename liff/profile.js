@@ -1,12 +1,11 @@
 import { init, getProfile } from "./liff.js";
-import { formatDateTime, calculateAge } from "./utils.js";
+import { formatDateTime } from "./utils.js";
 
 const loadingDiv = document.getElementById("loading");
 const profileContainer = document.getElementById("profile-container");
 const nicknameEl = document.getElementById("nickname");
 const emailEl = document.getElementById("email");
-const phoneEl = document.getElementById("phone");
-const birthdayEl = document.getElementById("birthday");
+const ageRangeEl = document.getElementById("age-range");
 const identityEl = document.getElementById("identity");
 const usageEl = document.getElementById("usage");
 const createdAtEl = document.getElementById("createdAt");
@@ -19,8 +18,7 @@ const cancelBtn = document.getElementById("cancelBtn");
 const editForm = document.getElementById("editForm");
 const nicknameInput = document.getElementById("nickname-input");
 const emailInput = document.getElementById("email-input");
-const phoneInput = document.getElementById("phone-input");
-const birthdayInput = document.getElementById("birthday-input");
+const ageRangeSelect = document.getElementById("age-range-input");
 const identitySelect = document.getElementById("identity-input");
 const identityOtherInput = document.getElementById("identity-other-input");
 // usageCheckboxes will be queried when needed
@@ -53,11 +51,14 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
   const renderUserInfo = (user) => {
     nicknameEl.textContent = user.nickname || "-";
     emailEl.textContent = user.email || "-";
-    phoneEl.textContent = user.phone || "-";
-    const age = calculateAge(user.birthday);
-    birthdayEl.textContent = user.birthday
-      ? `${user.birthday}${age !== null ? ` (${age} 歲)` : ""}`
-      : "-";
+
+    // Map age range key to label
+    let ageRangeDisplay = user.ageRange || "-";
+    if (apiSettings?.ageRanges) {
+      const found = apiSettings.ageRanges.find((a) => a.key === user.ageRange);
+      if (found) ageRangeDisplay = found.label;
+    }
+    ageRangeEl.textContent = ageRangeDisplay;
 
     // Map identity key to label
     let identityDisplay = user.identity || "-";
@@ -136,6 +137,16 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
             usageContainer.appendChild(div);
           });
         }
+        // Inject Age Ranges
+        if (settings.ageRanges) {
+          const ageRangeSelect = document.getElementById("age-range-input");
+          settings.ageRanges.forEach((item) => {
+            const opt = document.createElement("option");
+            opt.value = item.key;
+            opt.textContent = item.label;
+            ageRangeSelect.appendChild(opt);
+          });
+        }
       }
 
       // 4. Render user info
@@ -179,15 +190,7 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
     // Populate inputs
     nicknameInput.value = currentUser.nickname || "";
     emailInput.value = currentUser.email || "";
-    phoneInput.value = currentUser.phone || "";
-
-    if (currentUser.birthday) {
-      birthdayInput.value = currentUser.birthday;
-    } else {
-      const defaultDate = new Date();
-      defaultDate.setFullYear(defaultDate.getFullYear() - 30);
-      birthdayInput.value = defaultDate.toISOString().split("T")[0];
-    }
+    ageRangeSelect.value = currentUser.ageRange || "";
 
     const standardIdentities = apiSettings?.identities?.map((i) => i.key) || [];
     if (currentUser.identity) {
@@ -261,8 +264,7 @@ const updateSuccessModalEl = document.getElementById("updateSuccessModal");
     const newData = {
       nickname: nicknameValue,
       email: emailInput.value.trim(),
-      phone: phoneInput.value.trim(),
-      birthday: birthdayInput.value,
+      ageRange: ageRangeSelect.value,
       identity:
         identitySelect.value === "其他"
           ? identityOtherInput.value.trim()
